@@ -13,6 +13,23 @@ function App() {
   const handleClick = () => {
     setName('Doston')
   }
+
+  const handleDelete = (id) => {
+    // const filteredEvents = events.filter((event) => {
+    //   return event.id !== id
+    // })
+    // setEvents(filteredEvents)
+
+    // setEvents(events.filter((event) => {
+    //   return event.id !== id
+    // }))
+
+    setEvents((prev) => {
+      return prev.filter((event) => {
+        return event.id !== id
+      })
+    })
+  }
   
   return (
     <div className="App">
@@ -22,6 +39,7 @@ function App() {
         return (
           <div key={event.id}>
             <h2>{event.title}</h2>
+            <button onClick={() => handleDelete(event.id)}>Delete</button>
           </div>
         )
       })}
