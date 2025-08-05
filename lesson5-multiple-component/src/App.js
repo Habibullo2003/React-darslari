@@ -4,7 +4,7 @@ import Title from './components/Title';
 function App() {
   return (
     <div className="App">
-      <Title/>
+      <Title title="Events" subtitle="All events well be here :)"/>
       <header className="App-header">
         <img src="./logo.svg" className="App-logo" alt="logo" />
         <p>
