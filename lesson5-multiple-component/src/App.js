@@ -5,7 +5,8 @@ import { Fragment } from 'react'
 import Modal from './components/Modal'
 
 function App() {
-  const [showContent, setShowContent] = useState(true)
+  const [showContent, setShowContent] = useState(false)
+  const [showModal, setShowModal] = useState(true)
   const [events, setEvents] = useState([
     { title: "Habibullo's birthday party", id: 1 },
     { title: "Doston's live stream", id: 2 },
@@ -27,6 +28,12 @@ function App() {
         return event.id !== id
       })
     })
+  }
+
+  // toggle modal function
+
+  const closeModal = () => {
+    setShowModal(false)
   }
 
   let subtitle = 'All events well be here :)'
@@ -68,7 +75,7 @@ function App() {
         <h2>Habibullo Xayrullayev github account</h2>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, illum.</p>
       </Modal> */}
-      <Modal>
+      {showModal && <Modal closeModal={closeModal}>
         <h1>Habibullo Xayrullayev github account</h1>
         <a href="https://github.com/Habibullo2003">Github</a>
         <p>
@@ -79,7 +86,10 @@ function App() {
           blanditiis quod quas voluptatem voluptas nostrum reiciendis optio,
           repellendus, laborum fugiat possimus ad.
         </p>
-      </Modal>
+      </Modal>}
+      <br />
+      <br />
+      <button onClick={() => {setShowModal(true)}}>Show Modal</button>
     </div>
   )
 }
