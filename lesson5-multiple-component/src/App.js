@@ -2,6 +2,7 @@ import './App.css'
 import { useState } from 'react'
 import Title from './components/Title'
 import { Fragment } from 'react'
+import Modal from './components/Modal'
 
 function App() {
   const [showContent, setShowContent] = useState(true)
@@ -10,7 +11,6 @@ function App() {
     { title: "Doston's live stream", id: 2 },
     { title: 'match: Realmadrid vs Barselona', id: 3 },
   ])
-
 
   const handleDelete = (id) => {
     // const filteredEvents = events.filter((event) => {
@@ -34,6 +34,7 @@ function App() {
   return (
     <div className="App">
       <Title title="Events" subtitle={subtitle} />
+      <br />
       {showContent && (
         <button
           onClick={() => {
@@ -63,6 +64,22 @@ function App() {
           })}
         </div>
       )}
+      {/* <Modal>
+        <h2>Habibullo Xayrullayev github account</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, illum.</p>
+      </Modal> */}
+      <Modal>
+        <h1>Habibullo Xayrullayev github account</h1>
+        <a href="https://github.com/Habibullo2003">Github</a>
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum
+          eius totam architecto sit sapiente adipisci ea inventore dolorum?
+          Ullam quod odit vero nam iusto quas, et optio quae omnis. Recusandae
+          tempore obcaecati necessitatibus accusantium quo non voluptates
+          blanditiis quod quas voluptatem voluptas nostrum reiciendis optio,
+          repellendus, laborum fugiat possimus ad.
+        </p>
+      </Modal>
     </div>
   )
 }
