@@ -3,6 +3,7 @@ import { useState } from 'react'
 import Title from './components/Title'
 import Modal from './components/Modal'
 import EventList from './components/EventList'
+import NewEventForm from './components/NewEventForm'
 
 function App() {
   const [showContent, setShowContent] = useState(false)
@@ -64,20 +65,11 @@ function App() {
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, illum.</p>
       </Modal> */}
       {showModal && <Modal closeModal={closeModal} isModeModal={true}>
-        <h1>Habibullo Xayrullayev github account</h1>
-        <a href="https://github.com/Habibullo2003">Github</a>
-        <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum
-          eius totam architecto sit sapiente adipisci ea inventore dolorum?
-          Ullam quod odit vero nam iusto quas, et optio quae omnis. Recusandae
-          tempore obcaecati necessitatibus accusantium quo non voluptates
-          blanditiis quod quas voluptatem voluptas nostrum reiciendis optio,
-          repellendus, laborum fugiat possimus ad.
-        </p>
+        <NewEventForm/>
       </Modal>}
       <br />
       <br />
-      <button onClick={() => {setShowModal(true)}}>Show Modal</button>
+      <button onClick={() => {setShowModal(true)}}>New Event</button>
     </div>
   )
 }
