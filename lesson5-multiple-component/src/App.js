@@ -63,7 +63,7 @@ function App() {
         <h2>Habibullo Xayrullayev github account</h2>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, illum.</p>
       </Modal> */}
-      {showModal && <Modal closeModal={closeModal}>
+      {showModal && <Modal closeModal={closeModal} isModeModal={true}>
         <h1>Habibullo Xayrullayev github account</h1>
         <a href="https://github.com/Habibullo2003">Github</a>
         <p>
