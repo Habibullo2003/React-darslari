@@ -13,7 +13,7 @@ function Modal({ children, closeModal, isModeModal }) {
         }}>
         {children}
         <br />
-        <button onClick={closeModal}>Close</button>
+        <button className={isModeModal ? "modal-btn" : ""} onClick={closeModal}>Close</button>
       </div>
     </div>,
     document.body
