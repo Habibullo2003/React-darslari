@@ -8,11 +8,14 @@ import NewEventForm from './components/NewEventForm'
 function App() {
   const [showContent, setShowContent] = useState(false)
   const [showModal, setShowModal] = useState(true)
-  const [events, setEvents] = useState([
-    { title: "Habibullo's birthday party", id: 1 },
-    { title: "Doston's live stream", id: 2 },
-    { title: 'match: Realmadrid vs Barselona', id: 3 },
-  ])
+  const [events, setEvents] = useState([])
+
+  const newEvent = (event) => {
+    setEvents((prev) => {
+      return [...prev, event]
+    })
+    setShowModal(false)
+  }
 
   const handleDelete = (id) => {
     // const filteredEvents = events.filter((event) => {
@@ -29,12 +32,6 @@ function App() {
         return event.id !== id
       })
     })
-  }
-
-  // toggle modal function
-
-  const closeModal = () => {
-    setShowModal(false)
   }
 
   let subtitle = 'All events well be here :)'
@@ -60,12 +57,8 @@ function App() {
         </button>
       )}
       {showContent && <EventList events={events} handleDelete={handleDelete}/>}
-      {/* <Modal>
-        <h2>Habibullo Xayrullayev github account</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, illum.</p>
-      </Modal> */}
-      {showModal && <Modal closeModal={closeModal} isModeModal={true}>
-        <NewEventForm/>
+      {showModal && <Modal>
+        <NewEventForm newEvent={newEvent}/>
       </Modal>}
       <br />
       <br />
