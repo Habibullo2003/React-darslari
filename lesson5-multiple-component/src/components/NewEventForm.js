@@ -1,24 +1,24 @@
 import './NewEventForm.css'
-import { useState } from 'react'
+import { useRef } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 
 function NewEventForm({newEvent}) {
-  const [title, setTitle] = useState('')
-  const [date, setDate] = useState('')
-  const [location, setLocation] = useState('qashqadaryo')
+  const title = useRef()
+  const date = useRef()
+  const location = useRef('qashqadaryo')
+  const form = useRef()
 
   const resetInputs = () => {
-    setTitle('')
-    setDate('')
+    form.current.reset()
   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
 
     const event = {
-      title: title,
-      location: location,
-      date: date,
+      title: title.current.value,
+      location: location.current.value,
+      date: date.current.value,
       id: uuidv4()
     }
 
@@ -27,18 +27,18 @@ function NewEventForm({newEvent}) {
   }
 
   return (
-    <form className='new-event-form' onSubmit={handleSubmit}>
+    <form ref={form} className='new-event-form' onSubmit={handleSubmit}>
       <label>
         <span>Event Title:</span>
-        <input type="text" onChange={(e) => setTitle(e.target.value)} value={title}/>
+        <input type="text" ref={title}/>
       </label>
       <label>
         <span>Event Date:</span>
-        <input type="date" onChange={(e) => setDate(e.target.value)} value={date}/>
+        <input type="date" ref={date}/>
       </label>
       <label>
         <span>Event Location:</span>
-        <select onChange={(e) => setLocation(e.target.value)}>
+        <select ref={location}>
           <option value="qashqadaryo">Qashqadaryo</option>
           <option value="tashkent">Tashkent</option>
           <option value="madrid">Madrid</option>
