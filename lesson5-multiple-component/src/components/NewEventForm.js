@@ -5,6 +5,7 @@ import { v4 as uuidv4 } from 'uuid'
 function NewEventForm({newEvent}) {
   const [title, setTitle] = useState('')
   const [date, setDate] = useState('')
+  const [location, setLocation] = useState('qashqadaryo')
 
   const resetInputs = () => {
     setTitle('')
@@ -16,6 +17,7 @@ function NewEventForm({newEvent}) {
 
     const event = {
       title: title,
+      location: location,
       date: date,
       id: uuidv4()
     }
@@ -33,6 +35,14 @@ function NewEventForm({newEvent}) {
       <label>
         <span>Event Date:</span>
         <input type="date" onChange={(e) => setDate(e.target.value)} value={date}/>
+      </label>
+      <label>
+        <span>Event Location:</span>
+        <select onChange={(e) => setLocation(e.target.value)}>
+          <option value="qashqadaryo">Qashqadaryo</option>
+          <option value="tashkent">Tashkent</option>
+          <option value="madrid">Madrid</option>
+        </select>
       </label>
       <button>Submit</button>
     </form>
