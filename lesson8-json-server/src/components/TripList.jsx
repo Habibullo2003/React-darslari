@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { useFetch } from '../hooks/useFetch'
 
 function TripList() {
-  const [url, setUrl] = useState('http://localhost:3000/tripss')
+  const [url, setUrl] = useState('http://localhost:3000/trips')
   const { data: trips, isPending, error } = useFetch(url)
 
   return (
