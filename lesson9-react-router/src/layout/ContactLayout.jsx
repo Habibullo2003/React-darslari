@@ -1,4 +1,6 @@
-function Contact() {
+import { NavLink, Outlet } from "react-router-dom"
+
+function ContactLayout() {
   return (
     <div>
       <h1>Contact</h1>
@@ -10,8 +12,13 @@ function Contact() {
         possimus consequatur libero voluptatum animi facilis quia iste,
         inventore natus, aperiam ab vitae sed?
       </p>
+      <nav>
+        <NavLink to='faq'>Faq</NavLink>
+        <NavLink to='form'>Form</NavLink>
+      </nav>
+      <Outlet/>
     </div>
   )
 }
 
-export default Contact
+export default ContactLayout
