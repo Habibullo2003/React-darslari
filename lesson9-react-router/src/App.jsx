@@ -19,8 +19,8 @@ import Form from './pages/help/Form'
 function App() {
   const routes = createBrowserRouter(
     createRoutesFromElements(
-      <Route element={<RootLayout/>}>
-        <Route path="/" element={<Home />} />
+      <Route path='/' element={<RootLayout/>}>
+        <Route index element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<ContactLayout />} >
             <Route path='faq' element={<Faq/>}/>
