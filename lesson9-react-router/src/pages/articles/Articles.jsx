@@ -18,7 +18,7 @@ function Articles() {
               Author: <i>{article.author}</i>
             </p>
 
-            <NavLink to="">Read More</NavLink>
+            <NavLink to={`/articles/${article.id}`}>Read More</NavLink>
           </div>
         )
       })}

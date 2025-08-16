@@ -21,6 +21,7 @@ import Faq from './pages/help/Faq'
 import Form from './pages/help/Form'
 import PageNotFound from './pages/PageNotFound'
 import Articles from './pages/articles/Articles'
+import ArticleDetail from './pages/articles/ArticleDetail'
 
 function App() {
   const routes = createBrowserRouter(
@@ -34,6 +35,7 @@ function App() {
         </Route>
         <Route path='articles' element={<ArticlesLayout/>}>
           <Route index element={<Articles/>}/>
+          <Route path=':id' element={<ArticleDetail/>}/>
         </Route>
         {/* PageNotFound */}
         <Route path='*' element={<PageNotFound/>}/>
