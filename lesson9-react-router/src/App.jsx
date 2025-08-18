@@ -5,14 +5,8 @@ import RootLayout from './layout/RootLayout'
 import ContactLayout from './layout/ContactLayout'
 import ArticlesLayout from './layout/ArticlesLayout'
 
-
 // react=router-dom
-import {
-  createBrowserRouter,
-  createRoutesFromElements,
-  RouterProvider,
-  Route,
-} from 'react-router-dom'
+import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 
 // pages
 import Home from './pages/Home'
@@ -24,24 +18,51 @@ import Articles from './pages/articles/Articles'
 import ArticleDetail from './pages/articles/ArticleDetail'
 
 function App() {
-  const routes = createBrowserRouter(
-    createRoutesFromElements(
-      <Route path='/' element={<RootLayout/>}>
-        <Route index element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<ContactLayout />} >
-            <Route path='faq' element={<Faq/>}/>
-            <Route path='form' element={<Form/>}/>
-        </Route>
-        <Route path='articles' element={<ArticlesLayout/>}>
-          <Route index element={<Articles/>}/>
-          <Route path=':id' element={<ArticleDetail/>}/>
-        </Route>
-        {/* PageNotFound */}
-        <Route path='*' element={<PageNotFound/>}/>
-      </Route>
-    )
-  )
+  const routes = createBrowserRouter([
+    {
+      path: '/',
+      element: <RootLayout />,
+      errorElement: <PageNotFound />,
+      children: [
+        {
+          index: true,
+          element: <Home />,
+        },
+        {
+          path: 'about',
+          element: <About />,
+        },
+        {
+          path: 'contact',
+          element: <ContactLayout />,
+          children: [
+            {
+              path: 'faq',
+              element: <Faq />,
+            },
+            {
+              path: 'form',
+              element: <Form />,
+            },
+          ],
+        },
+        {
+          path: 'articles',
+          element: <ArticlesLayout />,
+          children: [
+            {
+              index: true,
+              element: <Articles />,
+            },
+            {
+              path: ':id',
+              element: <ArticleDetail />,
+            },
+          ],
+        },
+      ],
+    },
+  ])
   return (
     <div className="App">
       <RouterProvider router={routes} />
