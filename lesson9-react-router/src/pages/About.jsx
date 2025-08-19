@@ -1,4 +1,5 @@
 function About() {
+  // console.log(okk)
   return (
     <div>
       <h1>About</h1>

@@ -13,7 +13,7 @@ import Home from './pages/Home'
 import About from './pages/About'
 import Faq from './pages/help/Faq'
 import Form from './pages/help/Form'
-import PageNotFound from './pages/PageNotFound'
+import ErrorPage from './pages/ErrorPage'
 import Articles from './pages/articles/Articles'
 import ArticleDetail from './pages/articles/ArticleDetail'
 
@@ -22,7 +22,7 @@ function App() {
     {
       path: '/',
       element: <RootLayout />,
-      errorElement: <PageNotFound />,
+      errorElement: <ErrorPage />,
       children: [
         {
           index: true,
